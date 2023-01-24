@@ -4,7 +4,7 @@ const Default = require('./layouts/Default')
 const Show = ({ bread }) => {
     console.log(bread.name)
     return (
-        <default>
+        <Default>
             <h2>Show Page</h2>
             <h3>{bread.name}</h3>
             <p>
@@ -18,7 +18,7 @@ const Show = ({ bread }) => {
             </p>
             <img> src={bread.image} alt ={bread.name}</img>
             <li><a href="/breads">Go home</a></li>
-        </default>
+        </Default>
     )
 }
 
