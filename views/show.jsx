@@ -5,7 +5,6 @@ const Show = ({ bread }) => {
     console.log(bread.name)
     return (
         <Default>
-            <h2>Show Page</h2>
             <h3>{bread.name}</h3>
             <p>
                 and it
@@ -16,9 +15,10 @@ const Show = ({ bread }) => {
                 }
                 have gluten.
             </p>
-            <img> src={bread.image} alt ={bread.name}</img>
+            <img src={bread.image} alt={bread.name} />
             <li><a href="/breads">Go home</a></li>
         </Default>
+
     )
 }
 
