@@ -1,7 +1,7 @@
 const React = require('react')
 const Default = require('./layouts/Default')
 
-const Show = ({ bread }) => {
+const Show = ({ bread, index }) => {
     console.log(bread.name)
     return (
         <Default>
@@ -17,6 +17,11 @@ const Show = ({ bread }) => {
             </p>
             <img src={bread.image} alt={bread.name} />
             <li><a href="/breads">Go home</a></li>
+
+            <form action={`/breads/${index}?_method=DELETE`} method="POST">
+                <input type='submit' value="DELETE" />
+            </form>
+
         </Default>
 
     )
