@@ -5,6 +5,9 @@ function New() {
     return (
         <Default>
             <h2>Add a new bread</h2>
+            <div>
+                <a href="/breads"><button>Go back to the index</button></a>
+            </div>
             <form action="/breads" method="POST">
                 <label htmlFor="name">Name</label>
                 <input
@@ -18,6 +21,15 @@ function New() {
                     type="text"
                     name="image"
                     id="image" />
+                <label htmlFor='baker'>Baker</label>
+                <select name="baker" id="baker">
+                    <option value="Rachel">Rachel</option>
+                    <option value="Monica">Monica</option>
+                    <option value="Joey">Joey</option>
+                    <option value="Chandler">Chandler</option>
+                    <option value="Ross">Ross</option>
+                    <option value="Phoebe">Phoebe</option>
+                </select>
                 <label htmlFor="hasGluten">Has Gluten?</label>
                 <input
                     type="checkbox"
@@ -28,9 +40,6 @@ function New() {
                 <br />
                 <input type="submit" />
             </form>
-            <div className="backButton">
-                <a href="/breads"><button>Go back to the index</button></a>
-            </div>
         </Default>
     )
 }
