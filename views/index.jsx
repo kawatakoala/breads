@@ -8,23 +8,17 @@ function Index({ breads, title }) {
             <div className="newButton">
                 <a href="/breads/new"><button>Add a new bread</button></a>
             </div>
-
-            {/* <p>I have {breads[1].name} bread!</p> */}
-
-            <ul>
-                {
-                    breads.map((bread) => {
-                        return (
-                            <li key={bread.id}>
-                                <a href={`/breads/${bread.id}`}>
-                                    {bread.name}
-                                </a>
-                                <div>{bread.getBakedBy()}</div>
-                            </li>
-                        )
-                    })
-                }
-            </ul>
+            {
+                breads.map((bread, index) => {
+                    return (
+                        <li key={bread.id}>
+                            <a href={`/breads/${bread.id}`}>
+                                {bread.name}
+                            </a>
+                        </li>
+                    )
+                })
+            }
         </Default>
     )
 }
