@@ -11,8 +11,8 @@ const Baker = require('../models/baker')
 breads.get('/', async (req, res) => {
 
     try {
-        const foundBakers = await Baker.find({}, [], { sort: { name: 1 } }).lean()
-        const foundBreads = await Bread.find().populate('baker').limit(2).lean()
+        const foundBakers = await Baker.find({}, [], { sort: { name: 1 } })
+        const foundBreads = await Bread.find().populate('baker').limit(2)
 
         res.render('index', { breads: foundBreads, title: 'Index Page', bakers: foundBakers })
     }
@@ -22,21 +22,7 @@ breads.get('/', async (req, res) => {
 })
 
 
-// SHOW
-breads.get('/:id', (req, res) => {
-    Bread.findById(req.params.id)
-        .populate('baker')
-        .then(foundBread => {
-            res.render('Show', {
-                bread: foundBread,
-            })
-        })
-        .catch(error => {
-            console.log(error)
-            res.render('error404')
-        })
 
-})
 // // INDEX
 // breads.get('/', (req, res) => {
 
@@ -79,6 +65,22 @@ breads.get('/new', (req, res) => {
     })
 })
 
+// SHOW
+breads.get('/:id', (req, res) => {
+    Bread.findById(req.params.id)
+        .populate('baker')
+        .then(foundBread => {
+            res.render('Show', {
+                bread: foundBread,
+            })
+        })
+        .catch(error => {
+            console.log(error)
+            res.render('error404')
+        })
+
+})
+
 // EDIT
 breads.get('/:id/edit', async (req, res) => {
 
@@ -96,9 +98,6 @@ breads.get('/:id/edit', async (req, res) => {
         res.render('error404')
     }
 
-
-
-
     // Baker.find()
     // .then(foundBakers => {
     //   Bread.findById(req.params.id)
@@ -114,10 +113,6 @@ breads.get('/:id/edit', async (req, res) => {
     //   } )
     // })
 })
-
-
-
-
 
 // DELETE
 breads.delete('/:id', (req, res) => {
@@ -147,7 +142,6 @@ breads.put('/:id', (req, res) => {
         })
 })
 
-
 // SEED ROUTE
 breads.get('/data/seed', (req, res) => {
     Bread.insertMany(seeds)
@@ -155,17 +149,5 @@ breads.get('/data/seed', (req, res) => {
             res.redirect('/breads')
         })
 })
-
-
-
-
-
-
-
-
-
-
-
-
 
 module.exports = breads

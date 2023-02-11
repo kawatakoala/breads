@@ -8,7 +8,6 @@ const { Schema } = mongoose
 
 const Bread = require('./bread')
 
-
 const bakerSchema = new Schema({
     name: {
         type: String,
@@ -31,7 +30,5 @@ bakerSchema.post('findOneAndDelete', function () {
 })
 
 const Baker = mongoose.model('Baker', bakerSchema)
-
-
 
 module.exports = Baker

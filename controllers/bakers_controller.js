@@ -42,7 +42,4 @@ baker.delete('/:id', function (request, response) {
         })
 })
 
-
-
-
 module.exports = baker;
